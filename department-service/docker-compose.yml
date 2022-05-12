@@ -1,0 +1,37 @@
+version: "3"
+services:
+  #  department_api:
+  #    image: springboot-docker-compose-app:1
+  #    build:
+  #      context: ./
+  #      dockerfile: Dockerfile
+  #    environment:
+  #      - spring.h2.console.enabled=true
+  #      - spring.h2.console.path=/h2-console
+  #      - spring.datasource.url= jdbc:sqlserver://localhost;databaseName=test
+  #      - spring.datasource.username= sa
+  #      - spring.datasource.password= pass@word1
+  #        -  spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.SQLServer2012Dialect
+  #        -  spring.jpa.hibernate.ddl-auto= update
+  #    volumes:
+  #      - /data/springboot-docker-compose-app
+  #    ports:
+  #      - "${APP_PORT}:8081"
+  #    networks:
+  #      - department-network
+
+  backend-db:
+    image: mcr.microsoft.com/mssql/server
+    restart: always
+    environment:
+      SA_PASSWORD: "${DB_PASSWORD}"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "${MSSQL_PID}"
+    ports:
+      - "${SQL_PORT}:1433"
+    networks:
+      - department-network
+
+networks:
+  department-network:
+    driver: bridge
