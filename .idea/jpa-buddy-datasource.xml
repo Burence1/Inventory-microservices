@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="d913503e-bff1-488c-a34a-85796f5b1c8b" name="department-service" url="jdbc:h2:file:~/h2/department-service" driverClass="org.h2.Driver" />
+    </data-sources>
+  </component>
+</project>
